@@ -1,0 +1,20 @@
+{
+  "name": "Bamazon-MySQL",
+  "version": "1.0.0",
+  "description": "### Overview In this assignment, I created an Amazon-like storefront using MySQL database. The application works by taking in orders from customers and deplete stock from the store's inventory. The application should prompt users with two messages.",
+  "main": ".bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohannaCasimirMahoney/Bamazon-MySQL.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JohannaCasimirMahoney/Bamazon-MySQL/issues"
+  },
+  "homepage": "https://github.com/JohannaCasimirMahoney/Bamazon-MySQL#readme"
+}
