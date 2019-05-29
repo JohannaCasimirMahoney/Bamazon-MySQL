@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/JohannaCasimirMahoney/Bamazon-MySQL/issues"
   },
-  "homepage": "https://github.com/JohannaCasimirMahoney/Bamazon-MySQL#readme"
+  "homepage": "https://github.com/JohannaCasimirMahoney/Bamazon-MySQL#readme",
+  "dependencies": {
+    "mysql": "^2.17.1"
+  }
 }
