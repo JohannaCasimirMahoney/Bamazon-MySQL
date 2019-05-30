@@ -21,7 +21,7 @@ VALUE ("Brake Pads", "Brakes and Traction Control", 99.00, 300),
       ("Floor Mat", "Floor Mats and Carpet Products", 1.99, 50),
       ("Wheel Nut", "Tire Repair", 89, 100),
       ("Oil Filter Wrench," "Shop and Garage Tools", 6.99, 40),
-      ("Brake Caliper-Font", "Brakes and Traction Control", 65.99,30), 
+      ("Brake Caliper-Front", "Brakes and Traction Control", 65.99,30),
       
       
       
