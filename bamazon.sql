@@ -22,6 +22,7 @@ VALUE ("Brake Pads", "Brakes and Traction Control", 99.00, 300),
       ("Wheel Nut", "Tire Repair", 89, 100),
       ("Oil Filter Wrench," "Shop and Garage Tools", 6.99, 40),
       ("Brake Caliper-Front", "Brakes and Traction Control", 65.99,30),
+      ("Spark Plug", "Ignition", 7.49, 60),
       
       
       
