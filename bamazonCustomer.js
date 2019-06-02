@@ -15,3 +15,11 @@ var connection = mysql.createConnection({
     password: "password",
     database: "bamazon_db",
 });
+
+// Connnect to the mysql server and sql database
+connection.connect(function (err) {
+    if (err) throw err;
+    // This will run the start function after the connection is made to prompt the user
+    start();
+});
+
