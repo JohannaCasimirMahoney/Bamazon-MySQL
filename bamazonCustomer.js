@@ -17,10 +17,17 @@ var connection = mysql.createConnection({
 });
 
 // Connnect to the mysql server and sql database
-connection.connect(function (err) {
-    if (err) console.log(err);
-    console.log("connected as id" + connection.threadId + "\n");
-});
+var query = connection.query(
+    "SELECT * FROM products",
+    function (err, data) {
+        for (var i = 0; i < data.length; i++) {
+            console.log("ID: " + data[i].id + "PRODUCT: " + data[i].name + "$" + data[i].price);
+        }
+        inquirer.prompt([
+
+        ])
+    }
+)
 
 // This function will prompt the user for what action they should take
 function start() {
@@ -35,53 +42,39 @@ function start() {
             type: "input",
             message: "How many units of the product would you like to buy?",
         }
-    ]).then(function (res) {
-        connection.query(
+    ]).then(function (answers) {
+        var query = connection.query(
             "SELECT * FROM products",
             {
-                item_id: parseInt(res.id)
+                id: answers.itemID
             },
-            function (err, pRes) {
-                if (err) console.log(err);
-                console.log("Product ID" + res.id);
-                console.log("Amount: " + res.id);
-                // If user orders too many of the same product, this message below will display
-                if (parseInt(res.product) > pRes[0].stock_quantity) {
+            function (err, data) {
+                if (answers.quantity > data[0].stock) {
                     console.log("Insufficient Quantity!");
                     connection.end();
-                }
-                // This updates the database values to reduce the stock_quantity
-                else {
-                    connection.query(
-                        "UPDATE products set?"
+                } else {
+                    var query = connection.query(
+                        "UPDATE products",
                         [
-                        {
-                            stock_quantity: pRes[0].stock_quantity - parseInt(res.product)
-                        },
-                        {
-                            item_id: parseInt(res.id)
-                        }
-                        ]
-                    );
-                    // This will update row and display the price and remaining stock
-                    connection.query(
-                        "SELECT * FROM products",
-                        {
-                            item_id: parseInt(res.id)
-                        },
-                        // This is for the updated row
-                        function (err, sRes) {
-                            if (err) console.log(err);
-                            var totalPrice = pRes[0].price * parseInt(res.product);
-                            console.log("Your price is " + totalPrice);
-                            console.log("Stock remaining: " + sRes[0].stock_quantity);
+                            {
+                                stock: data[0].stock - answers.quantity,
+                                sales: data[0].sales + (data[0].price * answers.quantity)
+                            },
+                            {
+                                id: answers.itemID
+                            }
+                        ],
+                        function (err, data) {
+                            console.log("Your Order Is Placed!");
+                            connection.end();
                         }
                     );
-                    connection.end();
-                };
+                }
             }
+
         )
     })
+
 }
 
 
