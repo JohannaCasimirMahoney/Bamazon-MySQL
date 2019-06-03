@@ -4,9 +4,8 @@ var inquirer = require("inquirer");
 // Creating the connection information for the sql database
 var connection = mysql.createConnection({
     host: "localhost",
-
     // Port number
-    port: 3360,
+    port: 3306,
 
     // Username
     user: "root",
