@@ -33,20 +33,16 @@ function afterConnection() {
 
 // This function will prompt the user for what action they should take
 function start() {
-    inquirer
-        .prompt([
-            {
-                name: "ID",
-                type: "input",
-                message: "Enter the ID of the product you would like to buy.",
-            },
-
-
-
-
-
-
-
-
-        ])
+    inquirer.prompt([
+        {
+            name: "ID",
+            type: "input",
+            message: "Enter the ID of the product you would like to buy.",
+        },
+        {
+            name: "Quantity",
+            type: "input",
+            message: "How many units of the product would you like to buy?",
+        }
+    ])
 }
