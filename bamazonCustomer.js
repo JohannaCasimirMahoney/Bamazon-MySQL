@@ -33,7 +33,7 @@ connection.connect(function (error) {
                 }
             ]).then(function (answers) {
                 var query = connection.query(
-                    "SELECT * FROM products WHERE ?",
+                    "SELECT * FROM products",
                     {
                         id: answers.itemId
                     },
@@ -43,7 +43,7 @@ connection.connect(function (error) {
                             connection.end();
                         } else {
                             var query = connection.query(
-                                "UPDATE products SET ? WHERE ?",
+                                "UPDATE products SET",
                                 [
                                     {
                                         stock: data[0].stock - answers.quantity,
