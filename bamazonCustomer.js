@@ -23,3 +23,30 @@ connection.connect(function (err) {
     start();
 });
 
+function afterConnection() {
+    connection.query("SELECT * FROM products", function (err, res) {
+        if (err) throw err;
+        console.log(res);
+        connection.end();
+    });
+}
+
+// This function will prompt the user for what action they should take
+function start() {
+    inquirer
+        .prompt([
+            {
+                name: "ID",
+                type: "input",
+                message: "Enter the ID of the product you would like to buy.",
+            },
+
+
+
+
+
+
+
+
+        ])
+}
