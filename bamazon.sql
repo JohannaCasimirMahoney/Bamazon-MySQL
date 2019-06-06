@@ -7,13 +7,16 @@ USE bamazon_db;
 
 -- Create a table inside of that database called 'products' --
 CREATE TABLE products (
-item_id INT(11) AUTO_INCREMENT NOT NULL,
-product_name VARCHAR(30) NULL,
-department_name VARCHAR(50) NULL,
-price DECIMAL(10,2) NULL,
+item_id INT AUTO_INCREMENT NOT NULL,
+product_name VARCHAR(50) NOT NULL,
+department_name VARCHAR(50) NOT NULL,
+price DECIMAL(10,2) NOT NULL,
 stock_quantity INT(11) NOT NULL,
 PRIMARY KEY (item_id)
 );
+
+SELECT * FROM products;
+
 -- created rows that shows the database with around 10 different products --
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)

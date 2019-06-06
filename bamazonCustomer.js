@@ -13,6 +13,31 @@ var connection = mysql.createConnection({
     database: "bamazon_db"
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 connection.connect(function (error) {
     if (error) throw error;
 
