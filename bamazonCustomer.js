@@ -13,16 +13,17 @@ var connection = mysql.createConnection({
     database: "bamazon_db"
 });
 
+
 var query = connection.query(
     "SELECT * FROM products",
     function (err, data) {
         for (var i = 0; i < data.length; i++) {
-            console.log("ID: " + data[i].id + " PRODUCTS: " + data[i].name + " $" + data[i].price);
+            console.log("ID: " + data[i].id + " PRODUCT: " + data[i].name + " $" + data[i].price);
         }
         inquirer.prompt([
             {
                 name: "item_id",
-                message: "Enter the ID of the product you would like to buy."
+                message: "Enter the Item ID of the product you would like to buy."
             },
             {
                 name: "quantity",
@@ -51,7 +52,7 @@ var query = connection.query(
                                 }
                             ],
                             function (err, data) {
-                                console.log("Your Order Is Placed!");
+                                console.log("Thank you! Your order has been Placed. Come back again soon!");
                                 connection.end();
                             }
                         );
