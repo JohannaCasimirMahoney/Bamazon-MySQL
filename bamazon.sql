@@ -20,7 +20,7 @@ SELECT * FROM products;
 -- created rows that shows the database with around 10 different products --
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Brake Pads", "Brakes and Traction Control", 99.99, 395),
+VALUES ("Brake Pads", "Brakes and Traction Control", 99.99, 300),
       ("Floor Mat", "Floor Mats and Carpet Products", 24.99, 250),
       ("Wheel Nut", "Tire Repair", 89.99, 100),
       ("Oil Filter Wrench", "Shop and Garage Tools", 6.99, 40),
@@ -29,7 +29,7 @@ VALUES ("Brake Pads", "Brakes and Traction Control", 99.99, 395),
       ("Alternator", "Starter and Alternator", 176.99, 75),
       ("Trailer Hitch","Truck and Towing", 157.99, 100),
       ("Gear Shift Knob", "Interior Accessories", 36.99, 45),
-      ("STP Engine Oil", "Fluids and Chemicals", 4.79, 2),
+      ("STP Engine Oil", "Fluids and Chemicals", 4.79, 1),
       ("Battery", "Ignition Up and Routine Maintenance", 199.99, 245);
       
       
