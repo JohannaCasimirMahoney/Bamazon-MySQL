@@ -24,7 +24,7 @@ function showItemList() {
     connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
 
-        console.log('========================= Welcome to BAMAZON!!!! =========================')
+        console.log('========================= Welcome to BAMAZON!!! =========================')
 
         inquirer.prompt([
             {
