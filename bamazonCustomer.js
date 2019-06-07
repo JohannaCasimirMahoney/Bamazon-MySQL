@@ -14,52 +14,34 @@ var connection = mysql.createConnection({
 });
 
 
-var query = connection.query(
-    "SELECT * FROM products",
-    function (err, data) {
-        for (var i = 0; i < data.length; i++) {
-            console.log("ID: " + data[i].id + " PRODUCT: " + data[i].name + " $" + data[i].price);
-        }
+connection.connect(function (err) {
+    if (err) throw err;
+});
+
+//This displays the items
+function showItemList() {
+    connection.query("SELECT * FROM products", function (err, res) {
+        if (err) throw err;
+
         inquirer.prompt([
             {
-                name: "item_id",
-                message: "Enter the Item ID of the product you would like to buy."
-            },
-            {
-                name: "quantity",
-                message: "How many units of the product would you like to buy?"
-            }
-        ]).then(function (answers) {
-            var query = connection.query(
-                "SELECT * FROM products",
-                {
-                    id: answers.item_id
-                },
-                function (err, data) {
-                    if (answers.quantity > data[0].stock) {
-                        console.log("Insufficient Quantity!");
-                        connection.end();
-                    } else {
-                        var query = connection.query(
-                            "UPDATE products SET",
-                            [
-                                {
-                                    stock: data[0].stock - answers.quantity,
-                                    sales: data[0].sales + (data[0].price * answers.quantity)
-                                },
-                                {
-                                    id: answers.item_id
-                                }
-                            ],
-                            function (err, data) {
-                                console.log("Thank you! Your order has been Placed. Come back again soon!");
-                                connection.end();
-                            }
-                        );
+                name: "productId",
+                type: "list",
+                message: "Enter the Item ID of the product you would like to buy?",
+                choices: function () {
+                    var choices = [];
+                    for (var i = 0; i < res.length; i++) {
+                        choices.push(res[i].item_id + ": " + res[i].product_name + " $" + res[i].price)
                     }
+                    return choices
                 }
-            );
-        });
-    }
-);
+            },
 
+            {
+                name: "productQuant",
+                type: "input",
+                message: "How many units of the product would you like to buy?",
+                when: function (answers) {
+                    return answers.productId
+                }
+            }
