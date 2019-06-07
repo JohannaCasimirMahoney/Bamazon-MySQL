@@ -19,8 +19,6 @@ connection.connect(function (err) {
 
 });
 
-
-
 //This displays the items
 function showItemList() {
     connection.query("SELECT * FROM products", function (err, res) {
@@ -77,7 +75,7 @@ function showItemList() {
                 }
 
                 else {
-                    console.log("Insufficient quantity!. Try back again later!")
+                    console.log("Insufficient quantity!!!. Try back again later!")
                 }
                 purchaseMore(total);
             });

@@ -29,5 +29,8 @@ VALUES ("Brake Pads", "Brakes and Traction Control", 99.99, 395),
       ("Alternator", "Starter and Alternator", 176.99, 75),
       ("Trailer Hitch","Truck and Towing", 157.99, 100),
       ("Gear Shift Knob", "Interior Accessories", 36.99, 45),
+      ("STP Engine Oil", "Fluids and Chemicals", 4.79, 2),
       ("Battery", "Ignition Up and Routine Maintenance", 199.99, 245);
+      
+      
 
