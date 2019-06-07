@@ -37,3 +37,5 @@ Make sure you save and require the MySQL and Inquirer npm packages in your homew
 * bamazonCustomer.js
 
 * bamazonCustomer.sql
+
+* <a href="https://devhints.io/mysql">MySQL cheatsheet</a>

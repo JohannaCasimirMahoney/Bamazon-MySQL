@@ -16,12 +16,17 @@ var connection = mysql.createConnection({
 
 connection.connect(function (err) {
     if (err) throw err;
+
 });
+
+
 
 //This displays the items
 function showItemList() {
     connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
+
+        console.log('========================= Welcome to BAMAZON!!!! =========================')
 
         inquirer.prompt([
             {
@@ -45,3 +50,57 @@ function showItemList() {
                     return answers.productId
                 }
             }
+        ]).then(function (answers) {
+
+            var splitSelectedItem = answers.productId.split(":");
+            var selectedItem = splitSelectedItem[0];
+            var productQuantity = parseInt(answers.productQuant);
+            var total;
+            var stockQuantity;
+            var newProdQuant;
+            var productPrice;
+
+            connection.query("SELECT * FROM products WHERE ?", [{ item_id: selectedItem }], function (error, res) {
+                if (error) throw error;
+                stockQuantity = parseInt(res[0].stock_quantity);
+                newProdQuant = stockQuantity - productQuantity;
+                productPrice = parseInt(res[0].price);
+                total = productQuantity * productPrice;
+
+
+                if (stockQuantity >= productQuantity) {
+                    console.log("Successfully added to your shopping cart!");
+                    connection.query(
+                        "UPDATE products SET ? WHERE ?", [{ stock_quantity: newProdQuant }, { item_id: selectedItem }], function (error) {
+                            if (error) throw error;
+                        });
+                }
+
+                else {
+                    console.log("Insufficient quantity!. Try back again later!")
+                }
+                purchaseMore(total);
+            });
+        });
+    });
+}
+showItemList();
+
+function purchaseMore(total) {
+    inquirer.prompt([
+        {
+            name: "addMoreItems",
+            type: "list",
+            message: "Would you like to purchase something else?",
+            choices: ["Yes", "No"]
+        }
+    ]).then(function (answers) {
+        if (answers.addMoreItems === "Yes") {
+            showItemList();
+        }
+
+        else {
+            console.log("You're total comes to: $" + total);
+        }
+    });
+}
