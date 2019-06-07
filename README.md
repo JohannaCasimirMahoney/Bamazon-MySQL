@@ -30,8 +30,10 @@ Make sure you save and require the MySQL and Inquirer npm packages in your homew
 
 * Node.js
 
-* NPM Install
+* NPM Installs
 
-* NPM MySQL Package
+* MySQL Workbench
 
 * bamazonCustomer.js
+
+* bamazonCustomer.sql
