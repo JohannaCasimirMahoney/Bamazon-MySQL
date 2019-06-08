@@ -40,4 +40,4 @@ The products will have each of the following columns:
 
 * <a href="https://devhints.io/mysql">MySQL cheatsheet</a>
 
-<a href="https://youtu.be/1BosxUgn2xE">Bamazon-MySQL</a>
+* <a href="https://youtu.be/1BosxUgn2xE">Play Bamazon-MySQL Demo</a>
