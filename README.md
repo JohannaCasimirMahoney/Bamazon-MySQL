@@ -79,5 +79,5 @@ The products will have each of the following columns:
    * Once the update goes through, show the customer the total cost of their purchase.
 
 
-<img src="Screen Shot 1.png" alt="Girl in a jacket" style="width:500px;height:600px;">
+<img src="Screen Shot 1.png" alt="Girl in a jacket" style="width:250px;height:250px;">
 
