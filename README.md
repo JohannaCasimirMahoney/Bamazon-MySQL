@@ -39,3 +39,5 @@ The products will have each of the following columns:
 * bamazonCustomer.sql
 
 * <a href="https://devhints.io/mysql">MySQL cheatsheet</a>
+
+<a href="https://youtu.be/1BosxUgn2xE">Bamazon-MySQL</a>
