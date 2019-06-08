@@ -8,6 +8,8 @@ In this assignment, I created an Amazon-like storefront using MySQL database. Th
 
 Once the customer has placed the order, the application will check if the store has enough of the product to meet the customer's request. If not, the application will log a phrase `Insufficient quantity!`, and then prevent the order from going through. However, if the store _does_ have enough of the product, the customer's order will be fulfilled. Once the order is fulfilled. The customer will see the total cost of their purchase.
 
+ <a href="https://youtu.be/1BosxUgn2xE">### Play Bamazon-MySQL Demo</a>
+
 ### Customer View
 
 The products will have each of the following columns:
@@ -40,4 +42,4 @@ The products will have each of the following columns:
 
 * <a href="https://devhints.io/mysql">MySQL cheatsheet</a>
 
-* <a href="https://youtu.be/1BosxUgn2xE">Play Bamazon-MySQL Demo</a>
+
